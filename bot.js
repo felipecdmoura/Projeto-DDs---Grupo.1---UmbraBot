@@ -2,6 +2,7 @@ const Discord = require("Discord.js")
 const client = new Discord.Client()
 const config = require("./config.json")
 
+
 /*
 Nota:
 client.on é um evento
@@ -61,5 +62,5 @@ client.on("message",async message =>{
   }
 })
 
-client.login(config.token);
+client.login(config.BOT_TOKEN);
 // Seta o token
