@@ -40,15 +40,15 @@ BOT.on(`message`, (message) => {
       break;
 
     case `kick`:
-      BOT.commands.get(`kick`).execute(message, ARGS, DISCORD);
+      BOT.commands.get(`kick`).run(message, ARGS, DISCORD);
       break;
 
     case `ban`:
-      BOT.commands.get(`ban`).execute(message, ARGS, DISCORD);
+      BOT.commands.get(`ban`).run(message, ARGS, DISCORD);
       break;
 
     case `unban`:
-      BOT.commands.get(`unban`).execute(message, ARGS, DISCORD);
+      BOT.commands.get(`unban`).execute(message, ARGS, DISCORD, BOT);
       break;
 
     default:
