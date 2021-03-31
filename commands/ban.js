@@ -56,7 +56,7 @@ module.exports = {
 
     const BANNED_EMBED = new DISCORD.MessageEmbed()
       .setColor(`#a01a40`)
-      .setTitle(`\`NOTICE: YOU HAVE BEEN BANNED\`\n`)
+      .setTitle(`\`NOTICE: YOU HAVE BEEN BANNED\``)
       .setDescription(
         `You have been indefinitely **BANNED** from the channel **${message.guild.name}**.`
       )

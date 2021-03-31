@@ -58,7 +58,7 @@ module.exports = {
 
     const KICKED_EMBED = new DISCORD.MessageEmbed()
       .setColor(`#a01a40`)
-      .setTitle(`\`NOTICE: YOU HAVE BEEN KICKED\`\n`)
+      .setTitle(`\`NOTICE: YOU HAVE BEEN KICKED\``)
       .setDescription(
         `You have been **KICKED** from **${message.guild.name}**.\n`
       )

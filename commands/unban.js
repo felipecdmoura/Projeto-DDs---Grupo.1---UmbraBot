@@ -6,7 +6,7 @@ module.exports = {
 
   // KICK COMMAND CODE BELOW THIS LINE
 
-  execute(message, ARGS, BOT) {
+  execute(message, ARGS) {
     //  -----------------------------
     // [01] - Checking PERMISSION(s):
 
