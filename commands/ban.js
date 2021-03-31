@@ -64,7 +64,10 @@ module.exports = {
         name: `REASON:`,
         value: `\`${reason.toUpperCase()}​\``,
       })
-      .setTimestamp();
+      .setFooter(
+        `Please note that it is impossible for me to inform you of any future unbanning.`,
+        `https://cdn.discordapp.com/avatars/824583769255051274/3482cdf346348b2be93ea9e7c575bdac.png?size=256`
+      );
 
     try {
       await BANNING_TARGET_ID.ban({ reason: reason });

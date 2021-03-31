@@ -66,7 +66,10 @@ module.exports = {
         name: `\`REASON:\``,
         value: `\`${reason.toUpperCase()}​\``,
       })
-      .setTimestamp();
+      .setFooter(
+        `Make sure to follow them rules next time, bucko!`,
+        `https://cdn.discordapp.com/avatars/824583769255051274/3482cdf346348b2be93ea9e7c575bdac.png?size=256`
+      );
 
     try {
       await KICKING_TARGET_ID.kick(reason);
