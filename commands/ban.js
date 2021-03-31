@@ -4,7 +4,7 @@ module.exports = {
 
   // KICK COMMAND CODE BELOW THIS LINE
 
-  execute(message, ARGS, DISCORD) {
+  async run(message, ARGS, DISCORD) {
     const BANNING_TARGET = message.mentions.users.first();
 
     //  -----------------------------
@@ -17,12 +17,14 @@ module.exports = {
     // ------------------------------
     // [02] - Checking the banning TARGET:
     if (!ARGS[0]) {
-      return message.channel.send(`Please specify a member to be banned!`);
+      return message.channel.send(
+        `Please specify a member to be banned!\nsyntax: \`--ban @member reason\``
+      );
     }
 
     if (!BANNING_TARGET) {
       return message.channel.send(
-        `The specified user isn't valid and/or is not in the server!`
+        `The specified user isn't valid and/or is not in the server!\nsyntax: \`--ban @member reason\``
       );
     }
 
@@ -54,18 +56,40 @@ module.exports = {
 
     const BANNED_EMBED = new DISCORD.MessageEmbed()
       .setColor(`#a01a40`)
-      .setTitle(`YOU'VE BEEN BANNED\n`)
+      .setTitle(`\`NOTICE: YOU HAVE BEEN BANNED\`\n`)
       .setDescription(
-        `The user **${BANNING_TARGET_ID}** has been successfully **BANNED** from **${message.guild.name}**.`
+        `You have been indefinitely **BANNED** from the channel **${message.guild.name}**.`
       )
       .addFields({
-        name: `Reason:`,
-        value: `${reason}.`,
+        name: `REASON:`,
+        value: `\`${reason.toUpperCase()}​\``,
       })
       .setTimestamp();
 
-    message.channel
-      .send(BANNED_EMBED)
-      .then(() => BANNING_TARGET_ID.ban({ reason: reason }));
+    try {
+      await BANNING_TARGET_ID.ban({ reason: reason });
+      message.channel.send(
+        `The user ${BANNING_TARGET_ID} was succesfully **BANNED**.`
+      );
+
+      try {
+        await BANNING_TARGET_ID.send(BANNED_EMBED);
+        message.channel.send(
+          `\`[UPDATE]: The user has been successfully informed of their ban.\``
+        );
+      } catch (err) {
+        message.channel.send(
+          `\`[UPDATE]: I was unable to inform the user of their ban.\``
+        );
+      } finally {
+        message.channel.send(
+          `\`[NOTE]: It is impossible for me to inform the user of a possible unbanning.\``
+        );
+      }
+    } catch (err) {
+      message.channel.send(
+        `I was unable to ban ${BANNING_TARGET_ID}.\nMake sure my role is in a higher position than theirs.`
+      );
+    }
   },
 };
