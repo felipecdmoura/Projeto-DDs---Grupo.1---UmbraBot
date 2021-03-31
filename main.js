@@ -48,7 +48,11 @@ BOT.on(`message`, (message) => {
       break;
 
     case `unban`:
-      BOT.commands.get(`unban`).execute(message, ARGS, DISCORD, BOT);
+      BOT.commands.get(`unban`).execute(message, ARGS);
+      break;
+
+    case `help`:
+      BOT.commands.get(`help`).execute(message, ARGS, DISCORD, BOT);
       break;
 
     default:
