@@ -6,18 +6,19 @@ module.exports = {
     var placeholder;
 
     if (userInput.length <= 15) {
-      placeholder = `"${userInput}"`;
+      placeholder = `["${userInput}"]`;
     } else {
       placeholder = `the input value`;
     }
 
     const UNKNOWN_EMBED = new DISCORD.MessageEmbed()
       .setColor(`#a01a40`)
-      .setTitle(`ERROR: UNRECOGNIZED COMMAND`)
-      .setDescription(
-        `Sorry, but \`${placeholder}\` is not a recognized command.`
-      )
-      .setFooter(`Type "--help" for a list of all available commands.`);
+      .setTitle(`[ERROR]: Unrecognized Command!\n`)
+      .setDescription(`​`) /* Zero-Width WHITESPACE CHARACTER */
+      .addFields({
+        name: `Sorry, but ${placeholder} isn't a recognized command.`,
+        value: `Type "--help" for a list of available commands.`,
+      });
 
     message.channel.send(UNKNOWN_EMBED);
   },
