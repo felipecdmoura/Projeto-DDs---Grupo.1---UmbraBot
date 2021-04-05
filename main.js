@@ -61,9 +61,10 @@ BOT.on(`message`, (message) => {
       BOT.commands.get(`help`).execute(message, ARGS, DISCORD, BOT);
       break;
     case `addrolelist`:
+        //mudar o numero ali do mensagemSrt.substring . 14 é para --
         let mensagem = message.author.lastMessage;
         let mensagemSrt = mensagem.toString();
-        let nomeCargo = mensagemSrt.substring(14);
+        let nomeCargo = mensagemSrt.substring(13);
 
         if(ARGS.length === 0)return message.channel.send("Digite --addRole <nome do cargo>. (Limite 5 cargos.)");
 
@@ -88,9 +89,10 @@ BOT.on(`message`, (message) => {
       break;
      case `removerolelist`:
 
+        //mudar o numero ali do mensSrt.substring . 17 é para --
         let mens = message.author.lastMessage;
         let mensSrt = mens.toString();
-        let nomeCargoR = mensSrt.substring(17);
+        let nomeCargoR = mensSrt.substring(16);
 
         if(ARGS.length === 0)return message.channel.send("Digite --removerolelist <nome do cargo>.");
 
