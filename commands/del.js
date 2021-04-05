@@ -1,6 +1,6 @@
 module.exports = {
   name: `del`,
-  description: `Command to delete the lastest 0-100 messages of the channel`,
+  description: `Command to delete the last 0-100 messages of the channel`,
 
   execute(message, ARGS, DISCORD) {
     if (!message.member.hasPermission("ADMINISTRATOR"))
