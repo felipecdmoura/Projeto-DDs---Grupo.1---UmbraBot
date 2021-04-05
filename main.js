@@ -1,9 +1,11 @@
 // [BOT CONFIGURATION]
 
 const DISCORD = require(`discord.js`);
+
 const BOT = new DISCORD.Client();
-const config = require(`./config.json`);
-const PREFIX = config.prefix;
+
+const PREFIX = `--`;
+
 const FS = require(`fs`);
 
 BOT.commands = new DISCORD.Collection();
@@ -38,27 +40,19 @@ BOT.on(`message`, (message) => {
       break;
 
     case `kick`:
-      BOT.commands.get(`kick`).execute(message, ARGS, DISCORD);
+      BOT.commands.get(`kick`).run(message, ARGS, DISCORD);
       break;
 
     case `ban`:
-      BOT.commands.get(`ban`).execute(message, ARGS, DISCORD);
+      BOT.commands.get(`ban`).run(message, ARGS, DISCORD);
       break;
 
     case `unban`:
-      BOT.commands.get(`unban`).execute(message, ARGS, DISCORD);
+      BOT.commands.get(`unban`).execute(message, ARGS);
       break;
 
-    case `mute`:
-      BOT.commands.get(`mute`).execute(message, ARGS, DISCORD);
-      break;
-
-    case `unmute`:
-      BOT.commands.get(`unmute`).execute(message, ARGS, DISCORD);
-      break;
-
-    case `del`:
-      BOT.commands.get(`del`).execute(message, ARGS, DISCORD);
+    case `help`:
+      BOT.commands.get(`help`).execute(message, ARGS, DISCORD, BOT);
       break;
 
     default:
@@ -69,4 +63,4 @@ BOT.on(`message`, (message) => {
   }
 });
 
-BOT.login(config.BOT_TOKEN);
+BOT.login(`ODI0NTgzNzY5MjU1MDUxMjc0.YFxfeg.kVRV2CToFcqosnXPZLO5ehOP6No`);
