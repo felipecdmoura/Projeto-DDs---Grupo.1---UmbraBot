@@ -4,7 +4,7 @@ module.exports = {
 
   // CODE BELOW THIS LINE
 
-  execute(message, ARGS, DISCORD, BOT) {
+  execute(message, DISCORD, BOT) {
     const HELP_EMBED = new DISCORD.MessageEmbed()
       .setColor(`#a01a40`)
       .setTitle(

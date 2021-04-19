@@ -87,7 +87,7 @@ module.exports = {
         );
       } finally {
         message.channel.send(
-          `\`[NOTE]: It is impossible for me to inform the user of a possible unbanning.\``
+          `\`[NOTE]: It is impossible for me to inform the user of any eventual unbanning.\``
         );
       }
     } catch (err) {

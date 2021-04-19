@@ -42,7 +42,7 @@ module.exports = {
       (!message.member.hasPermission(`ADMINISTRATOR`) && targetHasKick)
     ) {
       return message.channel.send(
-        `You have no permission to kick this member!`
+        `I do not have permission to kick this member!`
       );
     }
 

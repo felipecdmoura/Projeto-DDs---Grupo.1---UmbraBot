@@ -7,7 +7,7 @@ module.exports = {
 
   // CODE BELOW THIS LINE
 
-  execute(message, ARGS) {
+  execute(message) {
     const SAMPLE_SIZE = message.mentions.members.size;
 
     switch (SAMPLE_SIZE) {
