@@ -1,8 +1,9 @@
 module.exports = {
   name: `kick`,
   description: `This command KICKS a user from the server (ONE USER AT A TIME).`,
+  syntax: `--kick @user reason`,
 
-  // KICK COMMAND CODE BELOW THIS LINE
+  // CODE BELOW THIS LINE
 
   async run(message, ARGS, DISCORD) {
     const KICKING_TARGET = message.mentions.users.first();

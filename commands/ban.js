@@ -1,8 +1,9 @@
 module.exports = {
   name: `ban`,
   description: `This command BANS a user from the server (ONE USER AT A TIME).`,
+  syntax: `--ban @user reason`,
 
-  // KICK COMMAND CODE BELOW THIS LINE
+  // CODE BELOW THIS LINE
 
   async run(message, ARGS, DISCORD) {
     const BANNING_TARGET = message.mentions.users.first();

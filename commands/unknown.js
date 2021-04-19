@@ -2,7 +2,9 @@ module.exports = {
   name: `unknown`,
   description: `This is the bot's automated response (as an EMBED) to the typing of an unrecognized command.`,
 
-  execute(message, ARGS, userInput, DISCORD) {
+  // CODE BELOW THIS LINE
+
+  execute(message, userInput, DISCORD) {
     var placeholder;
 
     if (userInput.length <= 15) {
