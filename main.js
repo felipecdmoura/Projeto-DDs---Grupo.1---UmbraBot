@@ -42,7 +42,7 @@ BOT.on(`message`, (message) => {
 
   switch (COMMAND) {
     case `ping`:
-      BOT.commands.get(`ping`).execute(message, ARGS);
+      BOT.commands.get(`ping`).execute(message);
       break;
 
     case `kick`:
@@ -58,8 +58,13 @@ BOT.on(`message`, (message) => {
       break;
 
     case `help`:
-      BOT.commands.get(`help`).execute(message, ARGS, DISCORD, BOT);
+      BOT.commands.get(`help`).execute(message, DISCORD, BOT);
       break;
+
+    case `lots`:
+      BOT.commands.get(`lots`).execute(message);
+      break;
+      
     case `addrolelist`:
         //mudar o numero ali do mensagemSrt.substring . 14 é para --
         let mensagem = message.author.lastMessage;
