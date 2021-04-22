@@ -1,11 +1,10 @@
 module.exports = {
   name: `kick`,
   description: `This command KICKS a user from the server (ONE USER AT A TIME).`,
-  syntax: `--kick @user reason`,
 
-  // CODE BELOW THIS LINE
+  // KICK COMMAND CODE BELOW THIS LINE
 
-  async run(message, ARGS, DISCORD) {
+  execute(message, ARGS, DISCORD) {
     const KICKING_TARGET = message.mentions.users.first();
 
     //  -----------------------------
@@ -42,7 +41,7 @@ module.exports = {
       (!message.member.hasPermission(`ADMINISTRATOR`) && targetHasKick)
     ) {
       return message.channel.send(
-        `I do not have permission to kick this member!`
+        `You have no permission to kick this member!`
       );
     }
 
@@ -73,13 +72,13 @@ module.exports = {
       );
 
     try {
-      await KICKING_TARGET_ID.kick(reason);
+      KICKING_TARGET_ID.kick(reason);
       message.channel.send(
         `The user ${KICKING_TARGET_ID} was succesfully **KICKED**.`
       );
 
       try {
-        await KICKING_TARGET_ID.send(KICKED_EMBED);
+        KICKING_TARGET_ID.send(KICKED_EMBED);
         message.channel.send(
           `\`[UPDATE]: The user has been successfully informed of their kicking.\``
         );

@@ -1,11 +1,10 @@
 module.exports = {
   name: `ban`,
   description: `This command BANS a user from the server (ONE USER AT A TIME).`,
-  syntax: `--ban @user reason`,
 
-  // CODE BELOW THIS LINE
+  // KICK COMMAND CODE BELOW THIS LINE
 
-  async run(message, ARGS, DISCORD) {
+  execute(message, ARGS, DISCORD) {
     const BANNING_TARGET = message.mentions.users.first();
 
     //  -----------------------------
@@ -71,13 +70,13 @@ module.exports = {
       );
 
     try {
-      await BANNING_TARGET_ID.ban({ reason: reason });
+      BANNING_TARGET_ID.ban({ reason: reason });
       message.channel.send(
         `The user ${BANNING_TARGET_ID} was succesfully **BANNED**.`
       );
 
       try {
-        await BANNING_TARGET_ID.send(BANNED_EMBED);
+        BANNING_TARGET_ID.send(BANNED_EMBED);
         message.channel.send(
           `\`[UPDATE]: The user has been successfully informed of their ban.\``
         );
@@ -87,7 +86,7 @@ module.exports = {
         );
       } finally {
         message.channel.send(
-          `\`[NOTE]: It is impossible for me to inform the user of any eventual unbanning.\``
+          `\`[NOTE]: It is impossible for me to inform the user of a possible unbanning.\``
         );
       }
     } catch (err) {
