@@ -189,6 +189,14 @@ BOT.on(`message`, (message) => {
         if(cargo5 != undefined){
         message.channel.send(`${cargo5}`)}
         break;
+      
+     case `poll`:
+      BOT.commands.get(`poll`).execute(message, ARGS, DISCORD);
+      break;
+
+    case `multipoll`:
+      BOT.commands.get(`multipoll`).execute(message, ARGS, DISCORD);
+      break;
 
     default:
       BOT.commands
