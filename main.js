@@ -65,6 +65,10 @@ BOT.on(`message`, (message) => {
       BOT.commands.get(`lots`).execute(message);
       break;
       
+    case `stats`:
+      BOT.commands.get(`stats`).execute(message, ARGS, DISCORD, BOT)
+      break
+      
     case `addrolelist`:
         //mudar o numero ali do mensagemSrt.substring . 14 é para --
         let mensagem = message.author.lastMessage;
