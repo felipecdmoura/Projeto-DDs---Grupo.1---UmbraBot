@@ -197,6 +197,14 @@ BOT.on(`message`, (message) => {
     case `multipoll`:
       BOT.commands.get(`multipoll`).execute(message, ARGS, DISCORD);
       break;
+      
+    case `play`:
+      BOT.commands.get(`play`).execute(message, ARGS);
+      break;
+      
+    case `stop`:
+      BOT.commands.get(`stop`).execute(message, ARGS);
+      break;
 
     default:
       BOT.commands
