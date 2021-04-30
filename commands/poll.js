@@ -1,23 +1,28 @@
-const { Message, DiscordAPIError } = require("discord.js");
-
 module.exports = {
   name: `poll`,
-  description: `command to set a poll on the channel`,
+  description: `This command creates a simple binary-choice poll in the channel in which it is created.`,
+  syntax: `--poll question`,
 
-  async execute(message, ARGS, DISCORD) {
-    let pollDescription = ARGS.join(" "); // Set the agruments of the command as the embed message description
+  async execute(BOT, message, ARGS, DISCORD) {
+    // STEP [01] - Gets the user's question.
+    let pollDescription = ARGS.join(" ");
 
-    let pollEmbed = new DISCORD.MessageEmbed() // Structure of the embed message the bot sends
+    // STEP [02] - Checks the command's syntax.
+    if (pollDescription.length === 0) {
+      return message.channel.send(
+        `Please, specify a question!\n**syntax:** \`${this.syntax}\``
+      );
+    }
+    // STEP [03] - Structures the poll's EMBED.
+    let pollEmbed = new DISCORD.MessageEmbed()
       .setTitle(`POLL`)
       .setDescription(pollDescription)
-      .setColor(`PURPLE`);
-    if (pollDescription.length === 0) {
-      // Checks if the user inserted a description for the poll
-      message.reply(`Please, describe your poll!`);
-    } else {
-      let msgEmbed = await message.channel.send(pollEmbed); // Sends the embed message to the channel
-      await msgEmbed.react(`👍`); // Reacts with 👍 option
-      await msgEmbed.react(`👎`); // Reaction with 👎 option
-    }
+      .setColor(`BLURPLE`)
+      .setFooter(`poll by ${message.author.tag}`);
+
+    // STEP [04] - Sends the poll's EMBED.
+    let msgEmbed = await message.channel.send(pollEmbed);
+    await msgEmbed.react(`👍`); // Reacts with "👍".
+    await msgEmbed.react(`👎`); // Reacts with "👎".
   },
 };

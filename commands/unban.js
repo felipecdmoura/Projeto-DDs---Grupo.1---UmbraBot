@@ -2,12 +2,12 @@ const { Client } = require("discord.js");
 
 module.exports = {
   name: `unban`,
-  description: `This command UNBANS a user from the server (ONE USER AT A TIME).`,
+  description: `This command UNBANS a user from the server.`,
   syntax: `--unban userID reason`,
 
   // CODE BELOW THIS LINE
 
-  execute(message, ARGS) {
+  execute(BOT, message, ARGS, DISCORD) {
     //  -----------------------------
     // [01] - Checking PERMISSION(s):
 
@@ -32,7 +32,7 @@ module.exports = {
 
       if (!ARGS[0]) {
         return message.channel.send(
-          `Please specify a member to be unbanned!\nsyntax: \`--unban userID reason\``
+          `Please specify a member to be unbanned!\n**syntax:** \`${this.syntax}\``
         );
       }
       // -----------------------------
@@ -44,7 +44,7 @@ module.exports = {
 
       if (isNaN(ARGS[0])) {
         return message.channel.send(
-          `The input ID is not a number!\nsyntax: \`--unban userID reason\`\n\nTo get a user's ID, first go to \`settings > appearance > advanced\` and make sure you have \`developer mode\` active. Then, right click a user's name in discord and click \`copy ID\`.`
+          `The input ID is not a number!\n**syntax:** \`${this.syntax}\`\n\nTo get a user's ID, first go to \`settings > appearance > advanced\` and make sure you have \`developer mode\` active. Then, right click a user's name in discord and click \`copy ID\`.`
         );
       }
 
