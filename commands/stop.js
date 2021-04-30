@@ -1,6 +1,7 @@
 module.exports = {
     name: 'stop',
     description: 'stop the music bot and leave the channel',
+    syntax: '--stop',
     async execute(message, args) {
         const voiceChannel = message.member.voice.channel;
  
