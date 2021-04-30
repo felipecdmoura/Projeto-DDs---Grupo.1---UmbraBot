@@ -4,23 +4,22 @@ module.exports = {
 
   // CODE BELOW THIS LINE
 
-  execute(message, userInput, DISCORD) {
-    var placeholder;
-
-    if (userInput.length <= 15) {
-      placeholder = `"${userInput}"`;
+  execute(BOT, message, ARGS, DISCORD) {
+    if (
+      message.content.slice(process.env.PREFIX.length).split(" ")[0].length == 0
+    ) {
+      message.channel.send("a");
     } else {
-      placeholder = `the input value`;
+      var unrecognizedCommand = message.content.split(" ")[0];
+      if (unrecognizedCommand.length - process.env.PREFIX.length <= 15) {
+        placeholder = unrecognizedCommand;
+      } else {
+        placeholder = `the input value`;
+      }
+
+      message.channel.send(
+        `Sorry, but \`${placeholder}\` is not a recognized command.\nDouble check for typos or type \`--help\` for a list of existing commands.`
+      );
     }
-
-    const UNKNOWN_EMBED = new DISCORD.MessageEmbed()
-      .setColor(`#a01a40`)
-      .setTitle(`ERROR: UNRECOGNIZED COMMAND`)
-      .setDescription(
-        `Sorry, but \`${placeholder}\` is not a recognized command.`
-      )
-      .setFooter(`Type "--help" for a list of all available commands.`);
-
-    message.channel.send(UNKNOWN_EMBED);
   },
 };

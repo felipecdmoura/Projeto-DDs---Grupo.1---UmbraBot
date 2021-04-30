@@ -1,11 +1,11 @@
 module.exports = {
   name: `ping`,
-  description: `This is a basic ping-pong command (mostly for testing purposes).`,
+  description: `Answers "pong!" (mostly for testing purposes).`,
   syntax: `--ping`,
 
   // CODE BELOW THIS LINE
 
-  execute(message) {
+  execute(BOT, message, ARGS, DISCORD) {
     message.channel.send(`pong!`);
   },
 };
