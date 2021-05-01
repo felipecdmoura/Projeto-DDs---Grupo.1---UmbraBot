@@ -13,7 +13,8 @@ module.exports = {
         if (!permissions.has('CONNECT')) return message.channel.send('You dont have the correct permissins(CONNECT)');
         if (!permissions.has('SPEAK')) return message.channel.send('You dont have the correct permissins(SPEAK)');
         if (!args.length) return message.channel.send('You need to send de link or name!');
- 
+     
+        //For URL
         const validURL = (str) =>{
             var regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
             if(!regex.test(str)){
@@ -22,7 +23,7 @@ module.exports = {
                 return true;
             }
         }
- 
+        
         if(validURL(args[0])){
  
             const connection = await voiceChannel.join();
@@ -39,7 +40,7 @@ module.exports = {
             return
         }
  
-        
+        //For name
         const connection = await voiceChannel.join();
  
         const videoFinder = async (query) => {
