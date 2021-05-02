@@ -6,6 +6,7 @@ module.exports = {
     description: 'Joins and plays a music from youtube',
     syntax: '--play MusicName/URL',
     async execute(message, args) {
+    //it is necessary to install the library "FFMPEG".
         const voiceChannel = message.member.voice.channel;
  
         if (!voiceChannel) return message.channel.send('You need to be in a channel!');
