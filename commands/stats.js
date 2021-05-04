@@ -1,6 +1,7 @@
 module.exports = {
     name: `stats`,
     description: `This command shows some data from the server.`,
+    syntax: `--stats`,
 
     execute(BOT, message, ARGS, DISCORD) {
         //necessario instalar a biblioteca "dateformat".
