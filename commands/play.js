@@ -5,7 +5,7 @@ module.exports = {
     name: 'play',
     description: 'Joins and plays a music from youtube',
     syntax: '--play MusicName/URL',
-    async execute(message, args) {
+    async execute(message, ARGS) {
     //it is necessary to install the library "FFMPEG".
         const voiceChannel = message.member.voice.channel;
  
@@ -13,7 +13,7 @@ module.exports = {
         const permissions = voiceChannel.permissionsFor(message.client.user);
         if (!permissions.has('CONNECT')) return message.channel.send('You dont have the correct permissins(CONNECT)');
         if (!permissions.has('SPEAK')) return message.channel.send('You dont have the correct permissins(SPEAK)');
-        if (!args.length) return message.channel.send('You need to send de link or name!');
+        if (!ARGS.length) return message.channel.send('You need to send de link or name!');
      
         //For URL
         const validURL = (str) =>{
@@ -25,10 +25,10 @@ module.exports = {
             }
         }
         
-        if(validURL(args[0])){
+        if(validURL(ARGS[0])){
  
             const connection = await voiceChannel.join();
-            const stream = ytdl(args[0], {filter: 'audioonly'});
+            const stream = ytdl(ARGS[0], {filter: 'audioonly'});
  
             connection.play(stream, {seek: 0, volume: 1})
             .on('finish', () =>{
@@ -51,7 +51,7 @@ module.exports = {
  
         }
  
-        const video = await videoFinder(args.join(' '));
+        const video = await videoFinder(ARGS.join(' '));
  
         if(video){
             const stream  = ytdl(video.url, {filter: 'audioonly'});
