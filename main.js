@@ -66,7 +66,7 @@ BOT.on(`message`, (message) => {
       break;
       
     case `stats`:
-      BOT.commands.get(`stats`).execute(message, ARGS, DISCORD, BOT)
+      BOT.commands.get(`stats`).execute(BOT, message, ARGS, DISCORD)
       break
       
     case `addrolelist`:
