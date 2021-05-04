@@ -2,7 +2,7 @@ module.exports = {
     name: `stats`,
     description: `This command shows some data from the server.`,
 
-    execute(message, ARGS, DISCORD, BOT) {
+    execute(BOT, message, ARGS, DISCORD) {
         //necessario instalar a biblioteca "dateformat".
 
         let dateformat = require('dateformat')
