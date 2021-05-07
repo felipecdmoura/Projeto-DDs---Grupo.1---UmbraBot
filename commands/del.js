@@ -1,6 +1,6 @@
 module.exports = {
   name: `del`,
-  aliases: [`d`],
+  aliases: [`d`, `delete`],
   description: `This command deletes the last 1 - 99 messages on the channel in which it is called.`,
   syntax: `--del\` \`number`,
 
