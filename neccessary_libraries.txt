@@ -1,0 +1,14 @@
+IMPORTANT!
+FOR THE CORRECT BOT BEHAVIOR IT IS NECESSARY TO DONWLOAD THE FOLLOWING LIBRARIES:
+
+• discord.js
+• @discordjs/opus (--play $ --stop)
+• ffmpeg-static (--play)
+• yt-search (--play)
+• ytdl-core (--play)
+• dateformat (--stats)
+
+AND...
+• env 
+ATTENTION!
+YOU MUST CREATE A .env FILE WITH THE BOT'S PREFIX AND TOKEN!
